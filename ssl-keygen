@@ -5,10 +5,10 @@ country=JA
 state=Osaka
 locality=Osaka
 organizational=jsx.jp
-unit=Developpers
-common=*.jsx.jp
+unit=CE
+common=jsx.jp,*.jsx.jp,*.secure.jsx.jp
 fname=wildcard.jsx.jp
-days=3655
+days=3656
 
 rm -fr $directory
 mkdir $directory
