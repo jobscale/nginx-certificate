@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -eu
+
+directory=tls
+
+pkcs12() {
+  openssl pkcs12 -export \
+  -inkey $directory/client.key \
+  -in $directory/client.crt \
+  -certfile $directory/wildcard.jsx.jp.cert \
+  -out $directory/jsx.jp.pfx
+}
+
+pkcs12Import() {
+  if [[ ! -d $HOME/.pki/nssdb ]]
+  then
+    mkdir -p $HOME/.pki/nssdb
+    certutil -d $HOME/.pki/nssdb -N --empty-password
+  fi
+  pk12util pk12util -d sql:$HOME/.pki/nssdb -i $directory/jsx.jp.pfx
+  certutil -d sql:$HOME/.pki/nssdb -L
+}
+
+pkcs12
