@@ -1,7 +1,7 @@
 #### run with container
 
 ```bash
-git clone https://github.com/jobscale/certificate.git
+git clone git@github.com:jobscale/certificate.git
 cd certificate
 main() {
   docker build . -t local/certificate:0.0.1
